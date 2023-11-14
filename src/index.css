@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+/* layout */
+
 .container {
   display: flex;
   height: calc(100vh - 60px);
@@ -29,3 +31,14 @@ code {
   overflow-y: auto;
   padding: 10px 10px;
 }
+
+/* link */
+.link{
+    color:#50CD89;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+}
+

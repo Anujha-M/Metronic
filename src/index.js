@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./scroll.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -10,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <React.StrictMode>
-    <App />
+      <App />
     </React.StrictMode>
   </LocalizationProvider>
 );
