@@ -7,8 +7,8 @@ const Dashboard = lazy(() => import("../screens/Dashboard/Dashboard"));
 const SignupPersonalInfo = lazy(() =>
   import("../screens/Login/SignupPersonalInfo")
 );
-const SignupMultisetup = lazy(() =>
-  import("../screens/Login/SignupMultisetup")
+const SignupMultiSetup = lazy(() =>
+  import("../screens/Login/SignupMultiSetup")
 );
 
 const MainRoutes = [
@@ -18,7 +18,7 @@ const MainRoutes = [
     children: [
       {
         path: "/",
-        element: <Navigate to="signup-personal-info" replace />,
+        element: <Navigate to="dashboard" replace />,
       },
       {
         path: "signup-personal-info",
@@ -26,7 +26,7 @@ const MainRoutes = [
       },
       {
         path: "signup-multiple-setup",
-        element: <SignupMultisetup />,
+        element: <SignupMultiSetup />,
       },
     ],
   },

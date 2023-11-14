@@ -1,9 +1,8 @@
 import { memo } from "react";
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 
-const SignupMultisetup = () => {
-  const theme = useTheme();
-  return <div>SignupMultisetup</div>;
+const SignupMultiSetup = () => {
+  return <div>SignupMulti setup</div>;
 };
 
-export default memo(SignupMultisetup);
+export default memo(SignupMultiSetup);

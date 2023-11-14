@@ -20,16 +20,17 @@ code {
 }
 
 .sideNav {
-  width: 250px;
+  padding: 30px;
   overflow-y: auto;
   border-right: 1px solid #EBEBEB;
-  padding-top: 4px;
+  background-color: #FFF;
 }
 
 .mainContent {
   flex: 1;
   overflow-y: auto;
   padding: 10px 10px;
+  background-color: white;
 }
 
 /* link */

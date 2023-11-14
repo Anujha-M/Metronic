@@ -1,8 +1,8 @@
 import { memo } from "react";
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 
 const SignupPersonalInfo = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return <div>SignupPersonalInfo</div>;
 };
