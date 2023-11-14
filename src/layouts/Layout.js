@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router";
-import { Loader } from "../components";
+import { Loader, Stepper } from "../components";
 import { StyledContainer } from "./MainLayout";
 import { Box, styled } from "@mui/material";
 import EffectsImage from "../assets/auth-bg.png";
 import Logo from "../assets/svgIcons/Logo.svg";
+import { StyledStepperWrapper } from "../components/Stepper";
 
 const StyledLeftContainer = styled(Box)(({ theme }) => ({
   width: 500,
@@ -46,7 +47,17 @@ const Layout = () => {
               gap: 120,
             }}
           >
-            <img src={Logo} />{" "}
+            <img src={Logo} />
+            <StyledStepperWrapper>
+              <Stepper
+                title="Account Type"
+                subTitle="Select your account type"
+                isActive
+                isCompletedStep
+                isFinalIndex
+                stepIndex={1}
+              />
+            </StyledStepperWrapper>
             <div
               style={{
                 display: "flex",
