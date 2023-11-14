@@ -18,15 +18,15 @@ const MainRoutes = [
     children: [
       {
         path: "/",
-        element: <Navigate to="signup-personal-info" replace />,
-      },
-      {
-        path: "signup-personal-info",
-        element: <SignupPersonalInfo />,
+        element: <Navigate to="signup-multiple-setup" replace />,
       },
       {
         path: "signup-multiple-setup",
         element: <SignupMultisetup />,
+      },
+      {
+        path: "signup-personal-info",
+        element: <SignupPersonalInfo />,
       },
     ],
   },

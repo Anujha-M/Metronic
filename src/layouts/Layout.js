@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { Loader, Stepper } from "../components";
 import { StyledContainer } from "./MainLayout";
 import { Box, styled } from "@mui/material";
@@ -26,7 +26,46 @@ export const StyledRightContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
 }));
 
+const StepperItems = [
+  {
+    value: 0,
+    title: "Account Type",
+    subTitle: "Select your account type",
+    pathname: "signup-multiple-setup",
+  },
+  {
+    value: 1,
+    title: "Account Details",
+    subTitle: "Add your personal info",
+    pathname: "signup-personal-info",
+  },
+  {
+    value: 2,
+    title: "Creator Info",
+    subTitle: "Setup your business details",
+    pathname: "signup-creator-info",
+  },
+  {
+    value: 3,
+    title: "Completed",
+    subTitle: "Your account is created",
+    pathname: "signup-account-created",
+  },
+];
+
 const Layout = () => {
+  const { pathname } = useLocation();
+
+  const matchPath = () => {
+    const navPath = pathname.split("/")[1] || "";
+    const matchItem = StepperItems.find((item) => {
+      return item.pathname === navPath;
+    });
+    return matchItem?.value ?? 0;
+  };
+
+  const selectedStepperValue = matchPath();
+
   return (
     <StyledContainer maxWidth="xl">
       <Box
@@ -47,16 +86,26 @@ const Layout = () => {
               gap: 120,
             }}
           >
-            <img src={Logo} />
+            <img src={Logo} alt="mainLogo" />
             <StyledStepperWrapper>
-              <Stepper
-                title="Account Type"
-                subTitle="Select your account type"
-                isActive
-                isCompletedStep
-                isFinalIndex
-                stepIndex={1}
-              />
+              {StepperItems.length
+                ? StepperItems.map((item, index) => {
+                    const isActiveStep = selectedStepperValue === item.value;
+                    return (
+                      <Stepper
+                        key={index}
+                        title={item.title}
+                        subTitle={item.subTitle}
+                        isActive={isActiveStep}
+                        isCompletedStep={
+                          !isActiveStep && selectedStepperValue > index
+                        }
+                        isFinalIndex={index === StepperItems.length - 1}
+                        stepIndex={index + 1}
+                      />
+                    );
+                  })
+                : null}
             </StyledStepperWrapper>
             <div
               style={{
@@ -66,13 +115,13 @@ const Layout = () => {
                 gap: 39,
               }}
             >
-              <a target="_blank" class="link">
+              <a target="_blank" className="link" href="">
                 Terms
               </a>
-              <a target="_blank" class="link">
+              <a target="_blank" className="link" href="">
                 Plans
               </a>
-              <a target="_blank" class="link">
+              <a target="_blank" className="link" href="">
                 Contact Us
               </a>
             </div>
