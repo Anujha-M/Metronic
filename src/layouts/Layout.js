@@ -25,6 +25,7 @@ export const StyledRightContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "center",
 }));
 
 const StepperItems = [
