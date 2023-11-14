@@ -2,11 +2,9 @@ import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Icon from "@mdi/react";
-import { styled, useTheme } from "@mui/material";
+import { styled } from "@mui/material";
 import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   "& .Mui-selected": {
@@ -47,26 +45,26 @@ const SideNav = ({ tabItems }) => {
   const { pathname } = useLocation();
 
   const matchPath = (items = []) => {
-    const navPath = pathname.split("/")[3] || "";
+    const navPath = pathname.split("/")[1] || "";
     const matchItem = items.find(({ path }) => {
       return path === navPath;
     });
-    return matchItem?.path;
+    return matchItem?.path ?? tabItems[0].path;
   };
 
   const selectedTabValue = matchPath(tabItems);
 
   const getTabIconItems = () => {
-    return tabItems.map((item) => {
+    return tabItems.map((item, index) => {
       return (
         <StyledTab
           sx={{ "& .MuiBadge-root": { paddingRight: "10px" } }}
           iconPosition="start"
-          key={item.path}
+          key={index}
           label={item.label}
           value={item.path}
-          //   component={Link}
-          //   to={item?.path}
+          component={Link}
+          to={item?.path}
           icon={<img src={item.icon} size={0.85} color="#A1A5B7" />}
           disableFocusRipple
           disableRipple

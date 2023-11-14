@@ -8,7 +8,7 @@ const SignupPersonalInfo = lazy(() =>
   import("../screens/Login/SignupPersonalInfo")
 );
 const SignupMultiSetup = lazy(() =>
-  import("../screens/Login/SignupMultiSetup")
+  import("../screens/Login/SignupMultisetup")
 );
 
 const MainRoutes = [
