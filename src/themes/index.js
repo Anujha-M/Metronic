@@ -12,6 +12,9 @@ export default function ThemeCustomization({ children }) {
     colors,
     customProps,
     spacingTheme,
+    typography: {
+      fontFamily: "Inter, sans-serif",
+    },
   });
   return (
     <StyledEngineProvider>
