@@ -1,11 +1,37 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
-import { AccountCard } from "../../components";
-import { mdiAccount } from "@mdi/js";
+import { AccountCard, MuiButton } from "../../components";
+import { mdiAccountBox, mdiBriefcaseVariant } from "@mdi/js";
+import { useNavigate } from "react-router";
 
 const SignupMultisetup = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const [selectedItm, setSelectedItm] = useState(1);
+
+  const cardItems = [
+    {
+      id: 1,
+      title: "Account",
+      subTitle: "Ready to submit",
+      iconPath: mdiAccountBox,
+    },
+    {
+      id: 2,
+      title: "Agency",
+      subTitle: "Sign-up as an agency",
+      iconPath: mdiBriefcaseVariant,
+    },
+  ];
+
+  const onClickContinue = () => {
+    navigate("/signup-personal-info");
+  };
+
+  const onClickCard = (cardItem) => {
+    setSelectedItm(cardItem.id);
+  };
 
   return (
     <Box
@@ -44,12 +70,44 @@ const SignupMultisetup = () => {
           <span style={{ color: "#2884EF" }}>help page.</span>
         </Typography>
       </Box>
-      <AccountCard
-        title={"title"}
-        subTitle={"subTitle"}
-        iconPath={mdiAccount}
-      />
-      <Box>s</Box>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "22px",
+        }}
+      >
+        {cardItems.length
+          ? cardItems.map((item, index) => {
+              return (
+                <AccountCard
+                  onClick={() => onClickCard(item)}
+                  key={index}
+                  title={item.title}
+                  subTitle={item.subTitle}
+                  iconPath={item.iconPath}
+                  isSelected={selectedItm === item.id}
+                />
+              );
+            })
+          : null}
+      </Box>
+      <Box sx={{ justifyContent: "end", display: "flex" }}>
+        <MuiButton
+          title="Continue"
+          sx={{
+            backgroundColor: "#006CEA",
+            padding: "12px 18px",
+            color: "#FFF",
+            fontSize: 16,
+            fontWeight: 600,
+            lineHeight: "16px",
+            ":hover": {
+              backgroundColor: "#006CEA",
+            },
+          }}
+          onClick={onClickContinue}
+        />
+      </Box>
     </Box>
   );
 };

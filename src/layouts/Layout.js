@@ -21,8 +21,9 @@ const StyledLeftContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const StyledRightContainer = styled(Box)(({ theme }) => ({
+  overflowY: "scroll",
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "column",
   alignItems: "center",
 }));
 

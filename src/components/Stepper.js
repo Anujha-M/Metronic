@@ -41,8 +41,9 @@ const Stepper = ({
         </StyledStepperCard>
         {isFinalIndex ? null : (
           <Box
+            flex={1}
             style={{
-              height: 40,
+              minHeight: 40,
               borderLeft: "1px dashed rgba(255, 255, 255, 0.30)",
               margin: "5px 0px",
               marginLeft: 46 / 2,
