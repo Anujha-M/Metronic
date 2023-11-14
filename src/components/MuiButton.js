@@ -3,7 +3,7 @@ import { Button, styled } from "@mui/material";
 import PropTypes from "prop-types";
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  minWidth: 0,
+  width: "auto",
   color: theme.colors.white.primary,
   marginLeft: "2px",
   textTransform: "none",
@@ -16,8 +16,6 @@ const MuiButton = ({ title, endIcon, startIcon, sx, onClick }) => {
     <StyledButton
       endIcon={endIcon}
       startIcon={startIcon}
-      disableRipple
-      disableFocusRipple
       sx={{ ...sx }}
       onClick={onClick}
     >

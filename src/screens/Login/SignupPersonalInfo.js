@@ -1,26 +1,24 @@
 import { memo } from "react";
 import { useTheme } from "@mui/material/styles";
 import { MuiButton, MuiTextInput } from "../../components";
-import {
-  Button,
-  Checkbox,
-  Divider,
-  Grid,
-  IconButton,
-  InputAdornment,
-  Typography,
-} from "@mui/material";
+import { Button, Checkbox, Divider, Grid, Typography } from "@mui/material";
 import Icon from "@mdi/react";
 import { mdiApple } from "@mdi/js";
 import google from "../../assets/Icon.png";
-import { CheckBox, Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router";
 
 const SignupPersonalInfo = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const showPassword = true;
+
   return (
-    <Grid container xs={6} justifyContent="center" spacing={2}>
+    <Grid
+      container
+      xs={6}
+      justifyContent="center"
+      spacing={2}
+      sx={{ padding: "40px 0px" }}
+    >
       <Grid item xs={12}>
         <Typography sx={{ color: "#181C32", fontSize: 24 }} align="center">
           Account Details
@@ -88,14 +86,12 @@ const SignupPersonalInfo = () => {
       <Grid item xs={12}>
         <MuiTextInput label="Confirm Password" />
       </Grid>
-      <Grid container sx={{ marginLeft: 2, paddingTop: 1 }}>
-        <CheckBox
-          sx={{
-            "& .MuiSvgIcon-root": { fontSize: 18, color: "#A1A5B7" },
-            color: "#A1A5B7",
-          }}
-        />
-
+      <Grid
+        item
+        xs={12}
+        sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+      >
+        <Checkbox defaultChecked />
         <Typography sx={{ color: "#5E6278", fontSize: 13 }}>
           I Accept the
           <span style={{ color: "#3E97FF", fontSize: 13 }}> Terms</span>
@@ -109,6 +105,7 @@ const SignupPersonalInfo = () => {
             textTransform: "none",
           }}
           variant="contained"
+          onClick={() => navigate("/dashboard")}
         >
           Continue
         </Button>
