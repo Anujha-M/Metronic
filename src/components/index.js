@@ -5,3 +5,4 @@ export { default as AppBarComp } from "./AppBar";
 export { default as SideNav } from "./SideNav";
 export { default as Stepper } from "./Stepper";
 export { default as AccountCard } from "./AccountCard";
+export { default as CardComp } from "./Card";

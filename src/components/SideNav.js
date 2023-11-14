@@ -29,15 +29,16 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   minHeight: 44,
   padding: "8px 10px",
   gap: 12,
+  borderRadius: "6px",
   justifyContent: "flex-start",
   ":hover": {
-    backgroundColor: "rgba(238, 246, 255, 1)",
+    backgroundColor: "#EEF6FF",
   },
   "&.Mui-selected": {
     fontWeight: 600,
     color: "#3E97FF",
     borderRight: "none",
-    backgroundColor: "rgba(238, 246, 255, 1)",
+    backgroundColor: "#EEF6FF",
     letterSpacing: "0em",
   },
 }));
@@ -66,9 +67,7 @@ const SideNav = ({ tabItems }) => {
           value={item.path}
           //   component={Link}
           //   to={item?.path}
-          icon={
-            <img src={item.icon} size={0.85} color="rgba(161, 165, 183, 1)" />
-          }
+          icon={<img src={item.icon} size={0.85} color="#A1A5B7" />}
           disableFocusRipple
           disableRipple
         />
